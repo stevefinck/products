@@ -12,6 +12,9 @@ public class ProductPrice {
 	public Float price;
 	public String currency;
 	
+	public ProductPrice() {
+	}
+	
 	public ProductPrice(Long id, Long productId, Float price, String currency) {
 		this.id = id;
 		this.productId = productId;
