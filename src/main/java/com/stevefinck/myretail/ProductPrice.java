@@ -1,5 +1,7 @@
 package com.stevefinck.myretail;
 
+import java.util.Random;
+
 import org.springframework.data.annotation.Id;
 
 public class ProductPrice {
@@ -10,9 +12,29 @@ public class ProductPrice {
 	public Float price;
 	public String currency;
 	
-	public ProductPrice(Long productId, Float price, String currency) {
+	public ProductPrice(Long id, Long productId, Float price, String currency) {
+		this.id = id;
+		this.productId = productId;
 		this.price = price;
 		this.currency = currency;
+	}
+	public ProductPrice(Long productId, Float price, String currency) {
+		this.id = (new Random()).nextLong();
+		this.productId = productId;
+		this.price = price;
+		this.currency = currency;
+	}
+	public ProductPrice(String currency) {
+		this.id = (new Random()).nextLong();
+		this.productId = 0l;
+		this.price = 0f;
+		this.currency = currency;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public Long getProductId() {
 		return productId;

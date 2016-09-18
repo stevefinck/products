@@ -1,18 +1,24 @@
 package com.stevefinck.myretail;
 
-public class Product {
+import java.io.Serializable;
 
-	public Long id;
+import org.springframework.data.annotation.Id;
+
+public class Product implements Serializable {
+
+	@Id
+	public String id;
 	public String name;
-	public ProductPrice price;
+//	public ProductPrice price;
 	
-	public Product(String name) {
+	public Product(String id, String name) {
+		this.id = id;
 		this.name = name;
 	}
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
