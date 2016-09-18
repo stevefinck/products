@@ -1,15 +1,13 @@
 package com.stevefinck.myretail;
 
-import java.io.Serializable;
-
 import org.springframework.data.annotation.Id;
 
-public class Product implements Serializable {
+public class Product {
 
 	@Id
 	public Long id;
 	public String name;
-//	public ProductPrice price;
+	public ProductPrice price;
 	
 	public Product() {
 	}
