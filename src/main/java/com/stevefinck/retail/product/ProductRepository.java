@@ -1,4 +1,4 @@
-package com.stevefinck.myretail;
+package com.stevefinck.retail.product;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -1,6 +1,8 @@
-package com.stevefinck.myretail;
+package com.stevefinck.retail.product;
 
 import org.springframework.data.annotation.Id;
+
+import com.stevefinck.retail.product.price.ProductPrice;
 
 public class Product {
 

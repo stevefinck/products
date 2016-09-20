@@ -1,10 +1,12 @@
-package com.stevefinck.myretail;
+package com.stevefinck.retail.product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.stevefinck.retail.product.price.ProductPrice;
 
 @RestController
 public class ProductService {
