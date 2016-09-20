@@ -3,14 +3,23 @@ package com.stevefinck.retail.product;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stevefinck.retail.product.price.ProductPrice;
+import com.stevefinck.retail.product.name.ProductNameService;
+import com.stevefinck.retail.product.price.ProductPriceService;
 
 @RestController
 public class ProductService {
 
+	@Inject
+	private ProductNameService nameService;
+	
+	@Inject
+	private ProductPriceService priceService;
+	
 	@RequestMapping("/hello")
 	public String hello() {
 		return "hello Steve";
@@ -20,12 +29,14 @@ public class ProductService {
 	public List<Product> listProducts() {
 		List<Product> products = new ArrayList<Product>();
 		
-		Product product1 = new Product(-1l, "Test");
-		product1.price = new ProductPrice(-101l, -1l, 100.99f, "USD");
+		Long product1Id = -1l;
+		Product product1 = new Product(product1Id, nameService.getProductName(product1Id));
+		product1.price = priceService.getPrice(product1Id);
 		products.add(product1);
 		
-		Product product2 = new Product(-2l, "Test2");
-		product2.price = new ProductPrice(-102l, -2l, 99.99f, "USD");
+		Long product2Id = -2l;
+		Product product2 = new Product(product2Id, nameService.getProductName(product2Id));
+		product2.price = priceService.getPrice(product2Id);
 		products.add(product2);
 		
 		return products;
