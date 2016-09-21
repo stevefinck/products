@@ -1,9 +1,9 @@
 package com.stevefinck.retail.product.name;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
-// @Component?
 public class ProductNameService {
 	
 	public String getProductName(Long productId) {
@@ -12,5 +12,11 @@ public class ProductNameService {
 		// add some caching
 		// deal with product name service being down (caching as one option)
 		return "The Big Lebowski";
+	}
+	
+	public String getQuote() {
+		RestTemplate restTemplate = new RestTemplate();
+	    Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
+	    return quote.getValue().getQuote();
 	}
 }

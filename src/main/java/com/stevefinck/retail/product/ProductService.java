@@ -33,4 +33,9 @@ public class ProductService {
 		
 		return product;
 	}
+	
+	@RequestMapping(value = "/products/quote", method = RequestMethod.GET)
+	public String getRandomQuote() {
+		return nameService.getQuote();
+	}
 }
