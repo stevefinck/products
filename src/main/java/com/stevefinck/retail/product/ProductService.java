@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +16,6 @@ import com.stevefinck.retail.product.name.ProductNameService;
 import com.stevefinck.retail.product.price.ProductPriceService;
 
 @RestController
-@RequestMapping("/products2")
 public class ProductService {
 
 	@Inject
@@ -24,12 +24,17 @@ public class ProductService {
 	@Inject
 	private ProductPriceService priceService;
 	
-	@RequestMapping("/hello")
+	@RequestMapping("/products/hello")
 	public String hello() {
 		return "Hi Steve!";
 	}
 	
-	@RequestMapping("/") 
+	@RequestMapping(method = RequestMethod.GET, value="/products/hellob/{yep}")
+	public String hellob(@PathVariable("yep") String arg) {
+		return "Hi Steve with some extra!" + arg;
+	}
+		
+	@RequestMapping("/products/list") 
 	public List<Product> listProducts() {
 		// TODO add paging
 		List<Product> products = new ArrayList<Product>();
@@ -49,7 +54,7 @@ public class ProductService {
 	}
 	
 	 
-	@RequestMapping(value = "/thisguy", method = RequestMethod.GET)
+	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public @ResponseBody Product getProduct(@RequestParam("productId") Long productId) {
 //		ProductPrice price = priceService.getPrice(productId);
 //		String name = nameService.getProductName(productId);
