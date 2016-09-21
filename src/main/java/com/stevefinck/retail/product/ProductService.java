@@ -27,6 +27,7 @@ public class ProductService {
 	
 	@RequestMapping("/products") 
 	public List<Product> listProducts() {
+		// TODO add paging
 		List<Product> products = new ArrayList<Product>();
 		
 		Long product1Id = -1l;

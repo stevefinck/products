@@ -30,8 +30,8 @@ public class ProductServiceTest {
 	public void testListProducts() {
 		Mockito.when(nameService.getProductName(-1l)).thenReturn("Real1");
 		Mockito.when(nameService.getProductName(-2l)).thenReturn("Real2");
-		Mockito.when(priceService.getPrice(-1l)).thenReturn(new ProductPrice(-101l, -1l, 19.99f, "USD"));
-		Mockito.when(priceService.getPrice(-2l)).thenReturn(new ProductPrice(-102l, -2l, 18.99f, "EUR"));
+		Mockito.when(priceService.getPrice(-1l)).thenReturn(new ProductPrice(-1l, 19.99f, "USD"));
+		Mockito.when(priceService.getPrice(-2l)).thenReturn(new ProductPrice(-2l, 18.99f, "EUR"));
 				
 		List<Product> products = service.listProducts();
 		
