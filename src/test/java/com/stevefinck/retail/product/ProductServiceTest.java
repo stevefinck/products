@@ -15,6 +15,8 @@ import com.stevefinck.retail.product.price.ProductPriceService;
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
 
+	private static final long PRODUCT_ID_1 = 1l;
+
 	@InjectMocks
 	ProductService service;
 	
@@ -26,13 +28,12 @@ public class ProductServiceTest {
 	
 	@Test
 	public void testGetProduct() {
-		Mockito.when(nameService.getProductName(-1l)).thenReturn("Real1");
-		Mockito.when(priceService.getPrice(-1l)).thenReturn(new ProductPrice(-1l, 19.99f, "USD"));
+		Mockito.when(nameService.getProductName(PRODUCT_ID_1)).thenReturn("Real1");
+		Mockito.when(priceService.getPrice(PRODUCT_ID_1)).thenReturn(new ProductPrice(-1l, 19.99f, "USD"));
 				
-		Product product = service.getProduct(-1l);
+		Product product = service.getProduct(PRODUCT_ID_1);
 		
 		Assert.assertEquals("Real1", product.getName());
-		
 		Assert.assertEquals(19.99d, product.price.getPrice(), 0.1);
 	}
 }
