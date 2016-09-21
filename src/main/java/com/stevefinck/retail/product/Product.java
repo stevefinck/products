@@ -1,17 +1,14 @@
 package com.stevefinck.retail.product;
 
-import java.io.Serializable;
-
 import org.springframework.data.annotation.Id;
 
 import com.stevefinck.retail.product.price.ProductPrice;
 
-public class Product implements Serializable {
+public class Product {
 
-	private static final long serialVersionUID = 8418795822491865168L;
 	@Id
 	public Long id;
-	public String name = "Name Service Down";
+	public String name;
 	public ProductPrice price;
 	
 	public Product() {

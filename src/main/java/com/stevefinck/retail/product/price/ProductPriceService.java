@@ -17,7 +17,7 @@ public class ProductPriceService {
 	}
 	
 	public List<ProductPrice> findAll() {
-		// TODO add paging to scale
+		// TODO add paging for performance and scalability
 		return repository.findAll();
 	}
 }

@@ -24,6 +24,10 @@ public class ProductService {
 	@RequestMapping(value = "/products/{productId}", method = RequestMethod.GET)
 	public @ResponseBody Product getProduct(@PathVariable("productId") Long productId) {
 		ProductPrice price = priceService.getPrice(productId);
+		// TODO return 404
+		if(price == null) {
+			return null;
+		}
 		String name = nameService.getProductName(productId);
 		Product product = new Product(productId, name, price);
 		
