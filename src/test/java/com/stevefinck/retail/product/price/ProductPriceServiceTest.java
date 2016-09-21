@@ -29,6 +29,5 @@ public class ProductPriceServiceTest {
 		Assert.assertEquals("USD", productPrice.getCurrency());
 		Assert.assertEquals(PRODUCT_ID_1, productPrice.getProductId());
 		Assert.assertEquals(19.99, productPrice.getPrice(), 0.1);
-	}
-	
+	}	
 }
