@@ -12,7 +12,7 @@ To Run The App
 ==============
 gradle bootrun
 
-navigate to http://localhost:8080 in a browser or via curl
+navigate to http://localhost:8080 in a browser or use curl
 
 http://localhost:8080/products/1 get a specific product
 http://localhost:8080/productPrices to get/put product prices
